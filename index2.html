@@ -16,8 +16,7 @@
       box-shadow: 0 0 20px #000;
     }
     .thumbnail {
-      width: 200px;
-      margin: 10px;
+      width: 100%;
       cursor: pointer;
       border-radius: 6px;
       transition: transform 0.2s;
@@ -26,9 +25,9 @@
       transform: scale(1.05);
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
     }
   </style>
 </head>
@@ -36,6 +35,59 @@
   <h1 class="text-3xl font-bold mb-6 text-center">Minecraft Gallery - Page 2</h1>
 
   <div class="gallery">
+
+    <div class="image-card bg-gray-800 rounded shadow p-2">
+      <img src="thumbnails/minecraft_2020-05-18_20.40.08.png" alt="minecraft_2020-05-18_20.40.08.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-18_20.40.08.png').showModal();">
+      <div class="text-sm mt-2 text-gray-300">
+        <div><strong>minecraft</strong></div>
+        <div>2020-05-18 20.40.08</div>
+      </div>
+    </div>
+
+    <!-- Dialog for full-size image -->
+    <dialog id="dialog-minecraft_2020-05-18_20.40.08.png" onclick="this.close();">
+      <img src="images/minecraft_2020-05-18_20.40.08.png" alt="Full size minecraft_2020-05-18_20.40.08.png">
+    </dialog>
+
+    <div class="image-card bg-gray-800 rounded shadow p-2">
+      <img src="thumbnails/minecraft_2020-05-18_20.42.50.png" alt="minecraft_2020-05-18_20.42.50.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-18_20.42.50.png').showModal();">
+      <div class="text-sm mt-2 text-gray-300">
+        <div><strong>minecraft</strong></div>
+        <div>2020-05-18 20.42.50</div>
+      </div>
+    </div>
+
+    <!-- Dialog for full-size image -->
+    <dialog id="dialog-minecraft_2020-05-18_20.42.50.png" onclick="this.close();">
+      <img src="images/minecraft_2020-05-18_20.42.50.png" alt="Full size minecraft_2020-05-18_20.42.50.png">
+    </dialog>
+
+    <div class="image-card bg-gray-800 rounded shadow p-2">
+      <img src="thumbnails/minecraft_2020-05-18_20.42.52.png" alt="minecraft_2020-05-18_20.42.52.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-18_20.42.52.png').showModal();">
+      <div class="text-sm mt-2 text-gray-300">
+        <div><strong>minecraft</strong></div>
+        <div>2020-05-18 20.42.52</div>
+      </div>
+    </div>
+
+    <!-- Dialog for full-size image -->
+    <dialog id="dialog-minecraft_2020-05-18_20.42.52.png" onclick="this.close();">
+      <img src="images/minecraft_2020-05-18_20.42.52.png" alt="Full size minecraft_2020-05-18_20.42.52.png">
+    </dialog>
+
+    <div class="image-card bg-gray-800 rounded shadow p-2">
+      <img src="thumbnails/minecraft_2020-05-18_21.41.14.png" alt="minecraft_2020-05-18_21.41.14.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-18_21.41.14.png').showModal();">
+      <div class="text-sm mt-2 text-gray-300">
+        <div><strong>minecraft</strong></div>
+        <div>2020-05-18 21.41.14</div>
+      </div>
+    </div>
+
+    <!-- Dialog for full-size image -->
+    <dialog id="dialog-minecraft_2020-05-18_21.41.14.png" onclick="this.close();">
+      <img src="images/minecraft_2020-05-18_21.41.14.png" alt="Full size minecraft_2020-05-18_21.41.14.png">
+    </dialog>
+
     <div class="image-card bg-gray-800 rounded shadow p-2">
       <img src="thumbnails/minecraft_2020-05-18_21.41.17.png" alt="minecraft_2020-05-18_21.41.17.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-18_21.41.17.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
@@ -242,110 +294,6 @@
     <!-- Dialog for full-size image -->
     <dialog id="dialog-minecraft_2020-05-24_20.23.38.png" onclick="this.close();">
       <img src="images/minecraft_2020-05-24_20.23.38.png" alt="Full size minecraft_2020-05-24_20.23.38.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-24_21.07.11.png" alt="minecraft_2020-05-24_21.07.11.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-24_21.07.11.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-24 21.07.11</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-24_21.07.11.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-24_21.07.11.png" alt="Full size minecraft_2020-05-24_21.07.11.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-24_22.13.09.png" alt="minecraft_2020-05-24_22.13.09.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-24_22.13.09.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-24 22.13.09</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-24_22.13.09.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-24_22.13.09.png" alt="Full size minecraft_2020-05-24_22.13.09.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-24_22.13.12.png" alt="minecraft_2020-05-24_22.13.12.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-24_22.13.12.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-24 22.13.12</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-24_22.13.12.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-24_22.13.12.png" alt="Full size minecraft_2020-05-24_22.13.12.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-24_23.08.46.png" alt="minecraft_2020-05-24_23.08.46.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-24_23.08.46.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-24 23.08.46</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-24_23.08.46.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-24_23.08.46.png" alt="Full size minecraft_2020-05-24_23.08.46.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-24_23.13.21.png" alt="minecraft_2020-05-24_23.13.21.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-24_23.13.21.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-24 23.13.21</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-24_23.13.21.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-24_23.13.21.png" alt="Full size minecraft_2020-05-24_23.13.21.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-24_23.13.22.png" alt="minecraft_2020-05-24_23.13.22.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-24_23.13.22.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-24 23.13.22</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-24_23.13.22.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-24_23.13.22.png" alt="Full size minecraft_2020-05-24_23.13.22.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-24_23.13.27.png" alt="minecraft_2020-05-24_23.13.27.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-24_23.13.27.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-24 23.13.27</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-24_23.13.27.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-24_23.13.27.png" alt="Full size minecraft_2020-05-24_23.13.27.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-24_23.13.28.png" alt="minecraft_2020-05-24_23.13.28.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-24_23.13.28.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-24 23.13.28</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-24_23.13.28.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-24_23.13.28.png" alt="Full size minecraft_2020-05-24_23.13.28.png">
     </dialog>
   </div>
 <div class="mt-6 flex justify-center space-x-4"><a href="index.html" class="px-4 py-2 bg-gray-800 rounded hover:bg-gray-700">⬅ Prev</a><a href="index3.html" class="px-4 py-2 bg-gray-800 rounded hover:bg-gray-700">Next ➡</a></div>

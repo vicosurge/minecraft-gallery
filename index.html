@@ -16,8 +16,7 @@
       box-shadow: 0 0 20px #000;
     }
     .thumbnail {
-      width: 200px;
-      margin: 10px;
+      width: 100%;
       cursor: pointer;
       border-radius: 6px;
       transition: transform 0.2s;
@@ -26,9 +25,9 @@
       transform: scale(1.05);
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
     }
   </style>
 </head>
@@ -36,6 +35,7 @@
   <h1 class="text-3xl font-bold mb-6 text-center">Minecraft Gallery - Page 1</h1>
 
   <div class="gallery">
+
     <div class="image-card bg-gray-800 rounded shadow p-2">
       <img src="thumbnails/minecraft_2020-03-20_22.28.05.png" alt="minecraft_2020-03-20_22.28.05.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-03-20_22.28.05.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
@@ -294,58 +294,6 @@
     <!-- Dialog for full-size image -->
     <dialog id="dialog-minecraft_2020-05-17_23.01.53.png" onclick="this.close();">
       <img src="images/minecraft_2020-05-17_23.01.53.png" alt="Full size minecraft_2020-05-17_23.01.53.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-18_20.40.08.png" alt="minecraft_2020-05-18_20.40.08.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-18_20.40.08.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-18 20.40.08</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-18_20.40.08.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-18_20.40.08.png" alt="Full size minecraft_2020-05-18_20.40.08.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-18_20.42.50.png" alt="minecraft_2020-05-18_20.42.50.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-18_20.42.50.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-18 20.42.50</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-18_20.42.50.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-18_20.42.50.png" alt="Full size minecraft_2020-05-18_20.42.50.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-18_20.42.52.png" alt="minecraft_2020-05-18_20.42.52.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-18_20.42.52.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-18 20.42.52</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-18_20.42.52.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-18_20.42.52.png" alt="Full size minecraft_2020-05-18_20.42.52.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2020-05-18_21.41.14.png" alt="minecraft_2020-05-18_21.41.14.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2020-05-18_21.41.14.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2020-05-18 21.41.14</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2020-05-18_21.41.14.png" onclick="this.close();">
-      <img src="images/minecraft_2020-05-18_21.41.14.png" alt="Full size minecraft_2020-05-18_21.41.14.png">
     </dialog>
   </div>
 <div class="mt-6 flex justify-center space-x-4"><a href="index2.html" class="px-4 py-2 bg-gray-800 rounded hover:bg-gray-700">Next ➡</a></div>

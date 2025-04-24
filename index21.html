@@ -16,8 +16,7 @@
       box-shadow: 0 0 20px #000;
     }
     .thumbnail {
-      width: 200px;
-      margin: 10px;
+      width: 100%;
       cursor: pointer;
       border-radius: 6px;
       transition: transform 0.2s;
@@ -26,9 +25,9 @@
       transform: scale(1.05);
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
     }
   </style>
 </head>
@@ -36,6 +35,7 @@
   <h1 class="text-3xl font-bold mb-6 text-center">Minecraft Gallery - Page 21</h1>
 
   <div class="gallery">
+
     <div class="image-card bg-gray-800 rounded shadow p-2">
       <img src="thumbnails/minecraft_2025-04-20_12.01.18.png" alt="minecraft_2025-04-20_12.01.18.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2025-04-20_12.01.18.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">

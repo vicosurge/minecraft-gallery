@@ -16,8 +16,7 @@
       box-shadow: 0 0 20px #000;
     }
     .thumbnail {
-      width: 200px;
-      margin: 10px;
+      width: 100%;
       cursor: pointer;
       border-radius: 6px;
       transition: transform 0.2s;
@@ -26,9 +25,9 @@
       transform: scale(1.05);
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
     }
   </style>
 </head>
@@ -36,316 +35,265 @@
   <h1 class="text-3xl font-bold mb-6 text-center">Minecraft Gallery - Page 9</h1>
 
   <div class="gallery">
+
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.10.png" alt="minecraft_2021-01-17_00.19.10.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.10.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-06_23.58.38.png" alt="minecraft_2021-01-06_23.58.38.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-06_23.58.38.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.10</div>
+        <div>2021-01-06 23.58.38</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.10.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.10.png" alt="Full size minecraft_2021-01-17_00.19.10.png">
+    <dialog id="dialog-minecraft_2021-01-06_23.58.38.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-06_23.58.38.png" alt="Full size minecraft_2021-01-06_23.58.38.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.12.png" alt="minecraft_2021-01-17_00.19.12.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.12.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-08_23.33.10.png" alt="minecraft_2021-01-08_23.33.10.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-08_23.33.10.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.12</div>
+        <div>2021-01-08 23.33.10</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.12.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.12.png" alt="Full size minecraft_2021-01-17_00.19.12.png">
+    <dialog id="dialog-minecraft_2021-01-08_23.33.10.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-08_23.33.10.png" alt="Full size minecraft_2021-01-08_23.33.10.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.13.png" alt="minecraft_2021-01-17_00.19.13.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.13.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-08_23.33.12.png" alt="minecraft_2021-01-08_23.33.12.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-08_23.33.12.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.13</div>
+        <div>2021-01-08 23.33.12</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.13.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.13.png" alt="Full size minecraft_2021-01-17_00.19.13.png">
+    <dialog id="dialog-minecraft_2021-01-08_23.33.12.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-08_23.33.12.png" alt="Full size minecraft_2021-01-08_23.33.12.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.14.png" alt="minecraft_2021-01-17_00.19.14.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.14.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-08_23.33.48.png" alt="minecraft_2021-01-08_23.33.48.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-08_23.33.48.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.14</div>
+        <div>2021-01-08 23.33.48</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.14.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.14.png" alt="Full size minecraft_2021-01-17_00.19.14.png">
+    <dialog id="dialog-minecraft_2021-01-08_23.33.48.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-08_23.33.48.png" alt="Full size minecraft_2021-01-08_23.33.48.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.15.png" alt="minecraft_2021-01-17_00.19.15.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.15.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-08_23.34.37.png" alt="minecraft_2021-01-08_23.34.37.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-08_23.34.37.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.15</div>
+        <div>2021-01-08 23.34.37</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.15.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.15.png" alt="Full size minecraft_2021-01-17_00.19.15.png">
+    <dialog id="dialog-minecraft_2021-01-08_23.34.37.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-08_23.34.37.png" alt="Full size minecraft_2021-01-08_23.34.37.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.18.png" alt="minecraft_2021-01-17_00.19.18.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.18.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-09_00.35.27.png" alt="minecraft_2021-01-09_00.35.27.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-09_00.35.27.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.18</div>
+        <div>2021-01-09 00.35.27</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.18.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.18.png" alt="Full size minecraft_2021-01-17_00.19.18.png">
+    <dialog id="dialog-minecraft_2021-01-09_00.35.27.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-09_00.35.27.png" alt="Full size minecraft_2021-01-09_00.35.27.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.19.png" alt="minecraft_2021-01-17_00.19.19.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.19.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-09_00.35.30.png" alt="minecraft_2021-01-09_00.35.30.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-09_00.35.30.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.19</div>
+        <div>2021-01-09 00.35.30</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.19.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.19.png" alt="Full size minecraft_2021-01-17_00.19.19.png">
+    <dialog id="dialog-minecraft_2021-01-09_00.35.30.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-09_00.35.30.png" alt="Full size minecraft_2021-01-09_00.35.30.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.19_2.png" alt="minecraft_2021-01-17_00.19.19_2.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.19_2.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-09_00.35.38.png" alt="minecraft_2021-01-09_00.35.38.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-09_00.35.38.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.19</div>
+        <div>2021-01-09 00.35.38</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.19_2.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.19_2.png" alt="Full size minecraft_2021-01-17_00.19.19_2.png">
+    <dialog id="dialog-minecraft_2021-01-09_00.35.38.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-09_00.35.38.png" alt="Full size minecraft_2021-01-09_00.35.38.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.20.png" alt="minecraft_2021-01-17_00.19.20.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.20.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-10_16.11.08.png" alt="minecraft_2021-01-10_16.11.08.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-10_16.11.08.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.20</div>
+        <div>2021-01-10 16.11.08</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.20.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.20.png" alt="Full size minecraft_2021-01-17_00.19.20.png">
+    <dialog id="dialog-minecraft_2021-01-10_16.11.08.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-10_16.11.08.png" alt="Full size minecraft_2021-01-10_16.11.08.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.24.png" alt="minecraft_2021-01-17_00.19.24.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.24.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-14_23.43.57.png" alt="minecraft_2021-01-14_23.43.57.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-14_23.43.57.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.24</div>
+        <div>2021-01-14 23.43.57</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.24.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.24.png" alt="Full size minecraft_2021-01-17_00.19.24.png">
+    <dialog id="dialog-minecraft_2021-01-14_23.43.57.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-14_23.43.57.png" alt="Full size minecraft_2021-01-14_23.43.57.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.25.png" alt="minecraft_2021-01-17_00.19.25.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.25.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-14_23.44.06.png" alt="minecraft_2021-01-14_23.44.06.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-14_23.44.06.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.25</div>
+        <div>2021-01-14 23.44.06</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.25.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.25.png" alt="Full size minecraft_2021-01-17_00.19.25.png">
+    <dialog id="dialog-minecraft_2021-01-14_23.44.06.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-14_23.44.06.png" alt="Full size minecraft_2021-01-14_23.44.06.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_00.19.26.png" alt="minecraft_2021-01-17_00.19.26.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_00.19.26.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-14_23.44.16.png" alt="minecraft_2021-01-14_23.44.16.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-14_23.44.16.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 00.19.26</div>
+        <div>2021-01-14 23.44.16</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_00.19.26.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_00.19.26.png" alt="Full size minecraft_2021-01-17_00.19.26.png">
+    <dialog id="dialog-minecraft_2021-01-14_23.44.16.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-14_23.44.16.png" alt="Full size minecraft_2021-01-14_23.44.16.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_01.27.57.png" alt="minecraft_2021-01-17_01.27.57.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_01.27.57.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-14_23.44.17.png" alt="minecraft_2021-01-14_23.44.17.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-14_23.44.17.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 01.27.57</div>
+        <div>2021-01-14 23.44.17</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_01.27.57.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_01.27.57.png" alt="Full size minecraft_2021-01-17_01.27.57.png">
+    <dialog id="dialog-minecraft_2021-01-14_23.44.17.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-14_23.44.17.png" alt="Full size minecraft_2021-01-14_23.44.17.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_01.28.02.png" alt="minecraft_2021-01-17_01.28.02.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_01.28.02.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-14_23.44.19.png" alt="minecraft_2021-01-14_23.44.19.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-14_23.44.19.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 01.28.02</div>
+        <div>2021-01-14 23.44.19</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_01.28.02.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_01.28.02.png" alt="Full size minecraft_2021-01-17_01.28.02.png">
+    <dialog id="dialog-minecraft_2021-01-14_23.44.19.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-14_23.44.19.png" alt="Full size minecraft_2021-01-14_23.44.19.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_01.28.11.png" alt="minecraft_2021-01-17_01.28.11.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_01.28.11.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-15_00.29.27.png" alt="minecraft_2021-01-15_00.29.27.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-15_00.29.27.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 01.28.11</div>
+        <div>2021-01-15 00.29.27</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_01.28.11.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_01.28.11.png" alt="Full size minecraft_2021-01-17_01.28.11.png">
+    <dialog id="dialog-minecraft_2021-01-15_00.29.27.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-15_00.29.27.png" alt="Full size minecraft_2021-01-15_00.29.27.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_01.28.13.png" alt="minecraft_2021-01-17_01.28.13.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_01.28.13.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-15_00.29.29.png" alt="minecraft_2021-01-15_00.29.29.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-15_00.29.29.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 01.28.13</div>
+        <div>2021-01-15 00.29.29</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_01.28.13.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_01.28.13.png" alt="Full size minecraft_2021-01-17_01.28.13.png">
+    <dialog id="dialog-minecraft_2021-01-15_00.29.29.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-15_00.29.29.png" alt="Full size minecraft_2021-01-15_00.29.29.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-01-17_01.28.21.png" alt="minecraft_2021-01-17_01.28.21.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-17_01.28.21.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-15_00.29.34.png" alt="minecraft_2021-01-15_00.29.34.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-15_00.29.34.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-01-17 01.28.21</div>
+        <div>2021-01-15 00.29.34</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-01-17_01.28.21.png" onclick="this.close();">
-      <img src="images/minecraft_2021-01-17_01.28.21.png" alt="Full size minecraft_2021-01-17_01.28.21.png">
+    <dialog id="dialog-minecraft_2021-01-15_00.29.34.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-15_00.29.34.png" alt="Full size minecraft_2021-01-15_00.29.34.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-02-02_22.10.33.png" alt="minecraft_2021-02-02_22.10.33.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-02-02_22.10.33.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-15_00.29.36.png" alt="minecraft_2021-01-15_00.29.36.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-15_00.29.36.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-02-02 22.10.33</div>
+        <div>2021-01-15 00.29.36</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-02-02_22.10.33.png" onclick="this.close();">
-      <img src="images/minecraft_2021-02-02_22.10.33.png" alt="Full size minecraft_2021-02-02_22.10.33.png">
+    <dialog id="dialog-minecraft_2021-01-15_00.29.36.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-15_00.29.36.png" alt="Full size minecraft_2021-01-15_00.29.36.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-02-02_22.10.38.png" alt="minecraft_2021-02-02_22.10.38.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-02-02_22.10.38.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-15_00.47.43.png" alt="minecraft_2021-01-15_00.47.43.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-15_00.47.43.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-02-02 22.10.38</div>
+        <div>2021-01-15 00.47.43</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-02-02_22.10.38.png" onclick="this.close();">
-      <img src="images/minecraft_2021-02-02_22.10.38.png" alt="Full size minecraft_2021-02-02_22.10.38.png">
+    <dialog id="dialog-minecraft_2021-01-15_00.47.43.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-15_00.47.43.png" alt="Full size minecraft_2021-01-15_00.47.43.png">
     </dialog>
 
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-02-02_22.48.42.png" alt="minecraft_2021-02-02_22.48.42.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-02-02_22.48.42.png').showModal();">
+      <img src="thumbnails/minecraft_2021-01-16_02.24.48.png" alt="minecraft_2021-01-16_02.24.48.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-01-16_02.24.48.png').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>minecraft</strong></div>
-        <div>2021-02-02 22.48.42</div>
+        <div>2021-01-16 02.24.48</div>
       </div>
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-02-02_22.48.42.png" onclick="this.close();">
-      <img src="images/minecraft_2021-02-02_22.48.42.png" alt="Full size minecraft_2021-02-02_22.48.42.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-02-10_22.55.39.png" alt="minecraft_2021-02-10_22.55.39.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-02-10_22.55.39.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2021-02-10 22.55.39</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-02-10_22.55.39.png" onclick="this.close();">
-      <img src="images/minecraft_2021-02-10_22.55.39.png" alt="Full size minecraft_2021-02-10_22.55.39.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-02-10_22.55.42.png" alt="minecraft_2021-02-10_22.55.42.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-02-10_22.55.42.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2021-02-10 22.55.42</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-02-10_22.55.42.png" onclick="this.close();">
-      <img src="images/minecraft_2021-02-10_22.55.42.png" alt="Full size minecraft_2021-02-10_22.55.42.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-02-10_22.55.43.png" alt="minecraft_2021-02-10_22.55.43.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-02-10_22.55.43.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2021-02-10 22.55.43</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-02-10_22.55.43.png" onclick="this.close();">
-      <img src="images/minecraft_2021-02-10_22.55.43.png" alt="Full size minecraft_2021-02-10_22.55.43.png">
-    </dialog>
-
-    <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="thumbnails/minecraft_2021-02-10_22.58.25.png" alt="minecraft_2021-02-10_22.58.25.png" class="thumbnail" onclick="document.getElementById('dialog-minecraft_2021-02-10_22.58.25.png').showModal();">
-      <div class="text-sm mt-2 text-gray-300">
-        <div><strong>minecraft</strong></div>
-        <div>2021-02-10 22.58.25</div>
-      </div>
-    </div>
-
-    <!-- Dialog for full-size image -->
-    <dialog id="dialog-minecraft_2021-02-10_22.58.25.png" onclick="this.close();">
-      <img src="images/minecraft_2021-02-10_22.58.25.png" alt="Full size minecraft_2021-02-10_22.58.25.png">
+    <dialog id="dialog-minecraft_2021-01-16_02.24.48.png" onclick="this.close();">
+      <img src="images/minecraft_2021-01-16_02.24.48.png" alt="Full size minecraft_2021-01-16_02.24.48.png">
     </dialog>
   </div>
 <div class="mt-6 flex justify-center space-x-4"><a href="index8.html" class="px-4 py-2 bg-gray-800 rounded hover:bg-gray-700">⬅ Prev</a><a href="index10.html" class="px-4 py-2 bg-gray-800 rounded hover:bg-gray-700">Next ➡</a></div>
