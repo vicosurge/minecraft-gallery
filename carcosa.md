@@ -19,18 +19,31 @@ Far inside the Nether exists a base and a strange structure which the inhabitant
 Other structures exist in the land but have to be reclaimed, there are mines which are being activated and farmlands built for the ever growing needs of the population, other improvements over the current structures and new services are pending to be created as the limited amount of people and the current work load do not permit for massive workloads to be undertaken.
 
 Inhabitants of the Land:
+
 QuarantineVico, the Sysop of the Land and the Administrator of the Village of Carcosa
+
 neahlenia, the Lord of Carcosa
+
 Akbaltts, the Engineer of the Land
+
 Xerge, the Dwarf that hides and is rarely seen
+
 Atma, the foreigner that comes and goes without notice
+
 ZaphiasX, the recently joined Builder of the Land
 
 Signed on this day,
+
 May 3rd of 2020
+
 Amended May 4th of 2020
+
 By,
+
 The Sysop of the Land,
+
 Administrator of the Village of Carcosa,
+
 By the will of our Lord,
+
 QuarantineVico
