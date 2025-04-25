@@ -55,11 +55,26 @@ def collect_images():
     return images
 
 def generate_html(images, page_num, total_pages):
-    nav = '<div class="mt-6 flex justify-center space-x-4">'
+    # Full navigation with First / Prev / Pages / Next / Last
+    nav = '<div class="mt-6 flex justify-center items-center flex-wrap gap-2 text-sm">'
+
+    # First and Prev
     if page_num > 1:
-        nav += f'<a href="{OUTPUT_PREFIX}{"" if page_num == 2 else page_num - 1}.html" class="px-4 py-2 bg-gray-800 rounded hover:bg-gray-700">⬅ Prev</a>'
+        nav += f'<a href="{OUTPUT_PREFIX}.html" class="px-3 py-1 rounded bg-gray-800 hover:bg-gray-700">« First</a>'
+        prev_suffix = "" if page_num == 2 else str(page_num - 1)
+        nav += f'<a href="{OUTPUT_PREFIX}{prev_suffix}.html" class="px-3 py-1 rounded bg-gray-800 hover:bg-gray-700">‹ Prev</a>'
+
+    # Page numbers
+    for i in range(1, total_pages + 1):
+        suffix = "" if i == 1 else str(i)
+        class_name = "bg-blue-600 text-white" if i == page_num else "bg-gray-800 hover:bg-gray-700"
+        nav += f'<a href="{OUTPUT_PREFIX}{suffix}.html" class="px-3 py-1 rounded {class_name}">Page {i}</a>'
+
+    # Next and Last
     if page_num < total_pages:
-        nav += f'<a href="{OUTPUT_PREFIX}{page_num + 1}.html" class="px-4 py-2 bg-gray-800 rounded hover:bg-gray-700">Next ➡</a>'
+        nav += f'<a href="{OUTPUT_PREFIX}{page_num + 1}.html" class="px-3 py-1 rounded bg-gray-800 hover:bg-gray-700">Next ›</a>'
+        nav += f'<a href="{OUTPUT_PREFIX}{total_pages}.html" class="px-3 py-1 rounded bg-gray-800 hover:bg-gray-700">Last »</a>'
+
     nav += '</div>'
 
     html = f"""<!DOCTYPE html>

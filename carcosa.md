@@ -1,0 +1,36 @@
+The Council of Carcosa has decided that by decree the Population of the surrounding land shall become part of the newly founded Township of Carcosa, by this time, May 3rd of this the year of founding 2020, the following has been incorporated into the Township with the following population which is indicated at the end of this document.
+
+At the Center of the Township is the Castle of Carcosa, seat of power of the Feudal lands assigned to the Lord of the land of Carcosa, attached immediately to it are farmlands, denominated as La Rancheria or the Skinwalker Ranch, that has been granted an extension of land by the decree of the Lord, overseeing the farmlands of La Rancheria is the Watchtower of Condemnation, this tower is used as a place to oversee the close land and warn of incoming threats through the farm and forest beyond it, it also serves as a reminder for the farmland serfs to serve the Lord without rebellion least they find themselves locked away in the cages floating below the Watchtower.
+
+Close to the Castle of Carcosa is the Village of Carcosa currently consisting of two houses, one administrative building that gives access to the newly created sewer system, a mason hut, the royal mail post office and the first royal police station as well as a sanctioned tavern, the Dragons Lair Inn, which is allowed to serve patrons until late hours of the night, a small hotel is also built in the vicinity which allows for visitors to come and stay with fine rooms.
+
+In the second level of the designated Village a newly created building of popular interest allows for the middle class to live in a building that has access to all services in a relatively small space, this building known as the Popular Flats of the Lake is already occupied by its inhabitants and is soon to be expanded to add a football court.
+
+On the other side of the Castle of Carcosa from the Village are the Barracks of the Patrol, where the soldiers designated to patrolling the surrounding area live, train and await orders when not in active duty, currently the Barracks are due for an expansion for it to have its own stable with war bred horses and an archery range for practicing, the Barracks also serve as another watchtower to oversee the following patch of land from which an invasion could come. Next to the Barracks a megastructure is being built which currently consists of a skeleton frame that is being rapidly developed.
+
+Further down the road from the Barracks are the farms of Slimes and Creepers, a monstrosity built by the Engineer of the Land which allows for resources to be obtained with ease while further down this road there is a Church and a small underground Farm below the bridge, recently also a fisherman hut has been built just below the bridge, this Bridge connects the main body of the Lands assigned to the Engineer in which some of his resource farms and machines are located at including his house.
+
+Back to the lands down south a road leads those who walk down through the House in the Middle of the Road, from this House down the road is the House of the First Inhabitants, built when the Land of Carcosa had barely begun to be inhabited by the current population, this House contains basic amenities and is connected by road to the Lighthouse to the Soul, a building created to house a large portal that allows those interested in visiting the Nether to do so.
+
+Towards the unknown region is a the Elder Watchtower, overseeing the passage through the deep forest and towards the untamed lands, somewhere around the tower the resident Dwarf has his residence but remains hidden from the eyes of others, further down north a modern house built for the Lord of the Land lays deep inside the forest for curious eyes to see only when they are able to fly.
+
+Far inside the Nether exists a base and a strange structure which the inhabitants of the land can use to refuel the power of their current tools and armor as well as having a glimpse at the horrors that lay beyond the Dream Gates.
+
+Other structures exist in the land but have to be reclaimed, there are mines which are being activated and farmlands built for the ever growing needs of the population, other improvements over the current structures and new services are pending to be created as the limited amount of people and the current work load do not permit for massive workloads to be undertaken.
+
+Inhabitants of the Land:
+QuarantineVico, the Sysop of the Land and the Administrator of the Village of Carcosa
+neahlenia, the Lord of Carcosa
+Akbaltts, the Engineer of the Land
+Xerge, the Dwarf that hides and is rarely seen
+Atma, the foreigner that comes and goes without notice
+ZaphiasX, the recently joined Builder of the Land
+
+Signed on this day,
+May 3rd of 2020
+Amended May 4th of 2020
+By,
+The Sysop of the Land,
+Administrator of the Village of Carcosa,
+By the will of our Lord,
+QuarantineVico
