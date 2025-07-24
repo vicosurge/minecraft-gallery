@@ -3,13 +3,14 @@ name: Build Minecraft Gallery
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]  # Added master as backup
     paths: 
       - 'images/**'
       - '*.py'
       - 'build_gallery.sh'
+      - '.github/workflows/**'  # Trigger on workflow changes
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
     paths: 
       - 'images/**'
       - '*.py'
@@ -25,9 +26,22 @@ jobs:
       id-token: write
     
     steps:
+    - name: Debug info
+      run: |
+        echo "Triggered by: ${{ github.event_name }}"
+        echo "Branch: ${{ github.ref }}"
+        echo "Repository: ${{ github.repository }}"
+        
     - name: Checkout repository
       uses: actions/checkout@v4
       
+    - name: List repository contents
+      run: |
+        echo "Repository structure:"
+        ls -la
+        echo "Checking for images folder:"
+        ls -la images/ 2>/dev/null || echo "No images folder found"
+        
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -45,13 +59,15 @@ jobs:
       run: chmod +x build_gallery.sh
       
     - name: Run gallery generation
-      run: ./build_gallery.sh
-      
-    - name: Copy gallery files to output folder
       run: |
-        cp index*.html gallery-output/
-        cp -r thumbnails gallery-output/ 2>/dev/null || echo "No thumbnails folder found"
-        cp -r images gallery-output/ 2>/dev/null || echo "No images folder found"
+        echo "Starting gallery generation..."
+        ./build_gallery.sh
+        echo "Gallery generation completed"
+        
+    - name: List generated files
+      run: |
+        echo "Generated files in gallery-output:"
+        ls -la gallery-output/ 2>/dev/null || echo "No gallery-output folder found"
         
     - name: Upload gallery artifact
       uses: actions/upload-artifact@v4
@@ -62,16 +78,16 @@ jobs:
         
     # Deploy to GitHub Pages (using newer action)
     - name: Setup Pages
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       uses: actions/configure-pages@v4
       
     - name: Upload to GitHub Pages
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       uses: actions/upload-pages-artifact@v3
       with:
         path: ./gallery-output
         
     - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       id: deployment
       uses: actions/deploy-pages@v4
