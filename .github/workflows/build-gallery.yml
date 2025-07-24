@@ -91,3 +91,78 @@ jobs:
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       id: deployment
       uses: actions/deploy-pages@v4
+      
+    # Slack notifications
+    - name: Slack Notification - Success
+      if: success()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: success
+        custom_payload: |
+          {
+            "text": "🎉 Minecraft Gallery Build Successful!",
+            "attachments": [{
+              "color": "good",
+              "fields": [
+                {
+                  "title": "Repository",
+                  "value": "${{ github.repository }}",
+                  "short": true
+                },
+                {
+                  "title": "Branch",
+                  "value": "${{ github.ref_name }}",
+                  "short": true
+                },
+                {
+                  "title": "Commit",
+                  "value": "<${{ github.event.head_commit.url }}|${{ github.event.head_commit.message }}>",
+                  "short": false
+                },
+                {
+                  "title": "Gallery URL",
+                  "value": "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/",
+                  "short": false
+                }
+              ]
+            }]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        
+    - name: Slack Notification - Failure
+      if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: failure
+        custom_payload: |
+          {
+            "text": "❌ Minecraft Gallery Build Failed!",
+            "attachments": [{
+              "color": "danger",
+              "fields": [
+                {
+                  "title": "Repository",
+                  "value": "${{ github.repository }}",
+                  "short": true
+                },
+                {
+                  "title": "Branch",
+                  "value": "${{ github.ref_name }}",
+                  "short": true
+                },
+                {
+                  "title": "Commit",
+                  "value": "<${{ github.event.head_commit.url }}|${{ github.event.head_commit.message }}>",
+                  "short": false
+                },
+                {
+                  "title": "Workflow Run",
+                  "value": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+                  "short": false
+                }
+              ]
+            }]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
