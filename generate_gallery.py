@@ -1,11 +1,12 @@
 import os
+import sys
 from pathlib import Path
 from math import ceil
 from PIL import Image
 
 IMAGE_FOLDER = "images"
 THUMBNAIL_FOLDER = "thumbnails"
-OUTPUT_FOLDER = "."
+OUTPUT_FOLDER = os.getenv("GALLERY_OUTPUT_FOLDER", ".")  # Allow env override
 OUTPUT_PREFIX = "index"
 VALID_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
 IMAGES_PER_PAGE = 24
@@ -31,13 +32,24 @@ def create_thumbnail(image_path, thumbnail_path):
 
 def ensure_thumbnails():
     os.makedirs(THUMBNAIL_FOLDER, exist_ok=True)
+    
+    if not os.path.exists(IMAGE_FOLDER):
+        print(f"❌ Image folder '{IMAGE_FOLDER}' not found!")
+        sys.exit(1)
+        
+    image_count = 0
     for fname in os.listdir(IMAGE_FOLDER):
         ext = os.path.splitext(fname)[1].lower()
         if ext in VALID_EXTENSIONS:
+            image_count += 1
             original_path = os.path.join(IMAGE_FOLDER, fname)
             thumb_path = os.path.join(THUMBNAIL_FOLDER, fname)
             if not os.path.exists(thumb_path):
                 create_thumbnail(original_path, thumb_path)
+                print(f"📸 Created thumbnail: {fname}")
+    
+    print(f"✅ Found {image_count} images")
+    return image_count
 
 def collect_images():
     images = []
@@ -117,9 +129,11 @@ def generate_html(images, page_num, total_pages):
 """
 
     for img in images:
+        # Create safe dialog ID by removing special characters
+        safe_alt = img['alt'].replace('.', '_').replace('-', '_').replace(' ', '_')
         html += f"""
     <div class="image-card bg-gray-800 rounded shadow p-2">
-      <img src="{img['thumbnail']}" alt="{img['alt']}" class="thumbnail" onclick="document.getElementById('dialog-{img['alt']}').showModal();">
+      <img src="{img['thumbnail']}" alt="{img['alt']}" class="thumbnail" onclick="document.getElementById('dialog-{safe_alt}').showModal();">
       <div class="text-sm mt-2 text-gray-300">
         <div><strong>{img['tag']}</strong></div>
         <div>{img['date']}</div>
@@ -127,7 +141,7 @@ def generate_html(images, page_num, total_pages):
     </div>
 
     <!-- Dialog for full-size image -->
-    <dialog id="dialog-{img['alt']}" onclick="this.close();">
+    <dialog id="dialog-{safe_alt}" onclick="this.close();">
       <img src="{img['src']}" alt="Full size {img['alt']}">
     </dialog>
 """
@@ -137,6 +151,13 @@ def generate_html(images, page_num, total_pages):
 
 def write_pages(images):
     total = len(images)
+    if total == 0:
+        print("❌ No images found to generate gallery!")
+        sys.exit(1)
+        
+    # Ensure output directory exists
+    os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+    
     total_pages = ceil(total / IMAGES_PER_PAGE)
     for page_num in range(1, total_pages + 1):
         start = (page_num - 1) * IMAGES_PER_PAGE
@@ -147,13 +168,21 @@ def write_pages(images):
         filename = os.path.join(OUTPUT_FOLDER, f"{OUTPUT_PREFIX}{suffix}.html")
         with open(filename, "w", encoding="utf-8") as f:
             f.write(html)
-    print(f"✅ {total_pages} page(s) generated with {total} images.")
+        print(f"📄 Generated: {filename}")
+    
+    print(f"✅ {total_pages} page(s) generated with {total} images in '{OUTPUT_FOLDER}'")
 
 def main():
-    ensure_thumbnails()
+    print("🚀 Starting gallery generation...")
+    image_count = ensure_thumbnails()
+    
+    if image_count == 0:
+        print("❌ No valid images found!")
+        sys.exit(1)
+        
     images = collect_images()
     write_pages(images)
+    print("🎉 Gallery generation completed!")
 
 if __name__ == "__main__":
     main()
-

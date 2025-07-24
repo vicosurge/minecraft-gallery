@@ -1,0 +1,66 @@
+# .github/workflows/build-gallery.yml
+name: Build Minecraft Gallery
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - 'images/**'
+      - '*.py'
+      - 'build_gallery.sh'
+  pull_request:
+    branches: [ main ]
+    paths: 
+      - 'images/**'
+      - '*.py'
+      - 'build_gallery.sh'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  build-gallery:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install Pillow
+        
+    - name: Create output directory
+      run: mkdir -p gallery-output
+      
+    - name: Make build script executable
+      run: chmod +x build_gallery.sh
+      
+    - name: Run gallery generation
+      run: ./build_gallery.sh
+      
+    - name: Copy gallery files to output folder
+      run: |
+        cp index*.html gallery-output/
+        cp -r thumbnails gallery-output/ 2>/dev/null || echo "No thumbnails folder found"
+        cp -r images gallery-output/ 2>/dev/null || echo "No images folder found"
+        
+    - name: Upload gallery artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: minecraft-gallery
+        path: gallery-output/
+        retention-days: 30
+        
+    # Optional: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./gallery-output
+        publish_branch: gh-pages
