@@ -19,6 +19,10 @@ on:
 jobs:
   build-gallery:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     
     steps:
     - name: Checkout repository
@@ -56,11 +60,18 @@ jobs:
         path: gallery-output/
         retention-days: 30
         
-    # Optional: Deploy to GitHub Pages
+    # Deploy to GitHub Pages (using newer action)
+    - name: Setup Pages
+      if: github.ref == 'refs/heads/main'
+      uses: actions/configure-pages@v4
+      
+    - name: Upload to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./gallery-output
+        
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./gallery-output
-        publish_branch: gh-pages
+      id: deployment
+      uses: actions/deploy-pages@v4
