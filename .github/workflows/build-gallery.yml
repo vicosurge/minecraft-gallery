@@ -49,8 +49,7 @@ jobs:
         
     - name: Install dependencies
       run: |
-        apt upgrade python3-pip
-        apt install python3-pillow
+        sudo apt install python3-pillow
         
     - name: Create output directory
       run: mkdir -p gallery-output
