@@ -42,10 +42,10 @@ jobs:
         echo "Checking for images folder:"
         ls -la images/ 2>/dev/null || echo "No images folder found"
         
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+    - name: Check Python version
+      run: |
+        python3 --version
+        which python3
         
     - name: Install dependencies
       run: |
