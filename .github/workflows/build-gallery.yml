@@ -47,10 +47,6 @@ jobs:
         python3 --version
         which python3
         
-    - name: Install dependencies
-      run: |
-        sudo apt install python3-pillow
-        
     - name: Create output directory
       run: mkdir -p gallery-output
       
