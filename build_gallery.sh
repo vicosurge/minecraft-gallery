@@ -32,7 +32,7 @@ mkdir -p "$THUMBNAILS_DIR"
 export GALLERY_OUTPUT_FOLDER="$OUTPUT_DIR"
 
 echo "🔧 Processing images and generating optimized thumbnails..."
-python3 generate_gallery.py  # Using the enhanced version
+python3 generate_gallery.py
 
 # Copy images to output directory (GitHub Pages needs them accessible)
 echo "📁 Copying images to output directory..."
@@ -44,8 +44,9 @@ if [ -d "$THUMBNAILS_DIR" ]; then
     cp -r "$THUMBNAILS_DIR" "$OUTPUT_DIR/"
 fi
 
-# Create optimized .htaccess for GitHub Pages (if needed)
-cat > "$OUTPUT_DIR/.htaccess" << 'EOF'
+# Create optimized .htaccess for GitHub Pages
+echo "⚙️ Creating server optimization files..."
+cat > "$OUTPUT_DIR/.htaccess" << 'HTACCESS_EOF'
 # Enable compression
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
@@ -64,21 +65,22 @@ cat > "$OUTPUT_DIR/.htaccess" << 'EOF'
     ExpiresActive On
     ExpiresDefault "access plus 1 month"
 </FilesMatch>
-EOF
+HTACCESS_EOF
 
 # Create a comprehensive README for the output
-cat > "$OUTPUT_DIR/README.md" << EOF
+echo "📝 Creating documentation..."
+cat > "$OUTPUT_DIR/README.md" << 'README_EOF'
 # 🎮 Enhanced Minecraft Server Gallery
 
 This is an automatically generated gallery showcasing Minecraft server screenshots, builds, and events.
 
-## 📊 Statistics
+## Statistics
 - **Generated on:** $(date)
-- **Total images:** $IMAGE_COUNT
+- **Total images:** IMAGE_COUNT_PLACEHOLDER
 - **Optimized thumbnails:** WebP format for faster loading
 - **Pages:** Dynamically generated based on image count (20 images per page)
 
-## ✨ Features
+## Features
 - **Minecraft-themed UI** with pixelated fonts and block-style design
 - **Performance optimized** with WebP thumbnails and lazy loading
 - **Auto-tagging system** that detects content types (builds, redstone, etc.)
@@ -87,41 +89,45 @@ This is an automatically generated gallery showcasing Minecraft server screensho
 - **Mobile responsive** design
 - **GitHub Pages optimized** for fast loading
 
-## 🗂️ File Structure
-- \`index.html\` - Main gallery page (Page 1)
-- \`index2.html\`, \`index3.html\`, etc. - Additional pages
-- \`images/\` - Original high-resolution images
-- \`thumbnails/\` - Optimized WebP thumbnails for fast loading
-- \`gallery_metadata.json\` - Generated metadata for images
-- \`.htaccess\` - Server optimization rules
+## File Structure
+- `index.html` - Main gallery page (Page 1)
+- `index2.html`, `index3.html`, etc. - Additional pages
+- `images/` - Original high-resolution images
+- `thumbnails/` - Optimized WebP thumbnails for fast loading
+- `gallery_metadata.json` - Generated metadata for images
+- `.htaccess` - Server optimization rules
 
-## 🚀 Performance Optimizations
+## Performance Optimizations
 - **WebP thumbnails** reduce file sizes by 25-35% compared to JPEG
 - **Lazy loading** only loads images as they come into view
 - **Reduced page size** (20 images per page instead of 24)
 - **Optimized CSS** with minimal external dependencies
 - **Efficient caching** headers for better repeat visits
 
-## 🎮 How to Use
-1. Open \`index.html\` in your browser
+## How to Use
+1. Open `index.html` in your browser
 2. Use filter buttons to browse by category (builds, redstone, events, etc.)
 3. Click any image to view full size
 4. Use slideshow mode for automatic browsing
 5. Navigate between pages using the pagination controls
 
-## 📱 Mobile Support
+## Mobile Support
 The gallery is fully responsive and works great on mobile devices with touch-friendly controls.
 
-## 🔧 Customization
+## Customization
 Tags are automatically detected from filenames. To improve auto-tagging:
-- Include descriptive words in filenames (e.g., \`castle_build_2024.png\`)
+- Include descriptive words in filenames (e.g., `castle_build_2024.png`)
 - Supported auto-tags: builds, redstone, landscape, event, pvp, farming, mining, nether, end, village, castle, modern, medieval
 
 Built with ❤️ for the Minecraft community!
-EOF
+README_EOF
 
-# Create a simple deployment guide
-cat > "$OUTPUT_DIR/DEPLOYMENT.md" << EOF
+# Replace placeholder with actual count
+sed -i "s/IMAGE_COUNT_PLACEHOLDER/$IMAGE_COUNT/g" "$OUTPUT_DIR/README.md"
+sed -i "s/\$(date)/$(date)/g" "$OUTPUT_DIR/README.md"
+
+# Create deployment guide
+cat > "$OUTPUT_DIR/DEPLOYMENT.md" << 'DEPLOY_EOF'
 # 🚀 Deployment Guide
 
 ## GitHub Pages Deployment
@@ -137,7 +143,7 @@ cat > "$OUTPUT_DIR/DEPLOYMENT.md" << EOF
    - Select folder: "/ (root)" or "/docs" if you placed files there
 
 3. **Custom Domain (Optional):**
-   - Add a \`CNAME\` file with your domain name
+   - Add a `CNAME` file with your domain name
    - Configure DNS to point to your GitHub Pages URL
 
 ## Performance Tips for GitHub Pages
@@ -153,16 +159,41 @@ cat > "$OUTPUT_DIR/DEPLOYMENT.md" << EOF
 - **Slow loading:** Ensure images are in the correct folders
 - **Mobile issues:** Clear browser cache and test again
 
-Your gallery should be available at: \`https://[username].github.io/[repository-name]\`
-EOF
+Your gallery should be available at: `https://[username].github.io/[repository-name]`
+DEPLOY_EOF
 
 echo "✅ Enhanced Minecraft gallery built successfully in '$OUTPUT_DIR'!"
 echo ""
 echo "🎮 New Features Added:"
 echo "   ✨ Minecraft-themed pixelated design"
 echo "   🚀 WebP thumbnails for 30% faster loading"
-echo "   🏷️  Auto-tagging system (builds, redstone, etc.)"
+echo "   🏷️ Auto-tagging system (builds, redstone, etc.)"
 echo "   🎬 Slideshow mode with auto-play"
 echo "   🔍 Filter system for easy browsing"
 echo "   📱 Mobile-responsive design"
-echo "   ⌨️  Keyboard navigation
+echo "   ⌨️ Keyboard navigation"
+echo ""
+echo "📈 Performance Improvements:"
+echo "   • Reduced from 24 to 20 images per page"
+echo "   • WebP format reduces thumbnail size by ~30%"
+echo "   • Lazy loading prevents initial slowdown"
+echo "   • Optimized CSS with minimal external dependencies"
+echo "   • Browser caching configured for GitHub Pages"
+echo ""
+echo "🌐 GitHub Pages Optimizations:"
+echo "   • All assets copied to output directory"
+echo "   • .htaccess file created for server optimization"
+echo "   • Deployment guide included"
+echo "   • Mobile-responsive for all devices"
+echo ""
+echo "🎯 Next Steps:"
+echo "   1. Copy contents of '$OUTPUT_DIR' to your GitHub repository"
+echo "   2. Enable GitHub Pages in repository settings"
+echo "   3. Your gallery will be live at: https://[username].github.io/[repo-name]"
+echo ""
+echo "🔧 For better auto-tagging, name your files like:"
+echo "   • castle_build_2024_01_15.png"
+echo "   • redstone_contraption_evening.jpg"
+echo "   • nether_exploration_with_friends.png"
+echo ""
+echo "🌐 Open $OUTPUT_DIR/index.html in your browser to preview!"
