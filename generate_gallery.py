@@ -502,6 +502,161 @@ def generate_minecraft_js():
     });
     """
 
+def generate_lore_page():
+    """Generate a themed lore page from carcosa.md"""
+    lore_file = "carcosa.md"
+    if not os.path.exists(lore_file):
+        print("⚠️ carcosa.md not found, skipping lore page")
+        return
+
+    with open(lore_file, "r", encoding="utf-8") as f:
+        raw_text = f.read()
+
+    # Split into paragraphs and convert to HTML
+    paragraphs = [p.strip() for p in raw_text.strip().split("\n\n") if p.strip()]
+    body_html = ""
+    in_signature = False
+    for p in paragraphs:
+        # Detect the inhabitants list
+        if p.startswith("Inhabitants of the Land:"):
+            body_html += '<h2 class="lore-heading">Inhabitants of the Land</h2>\n'
+        elif p.startswith("Signed on this day,"):
+            in_signature = True
+            body_html += '<div class="lore-signature">\n'
+            sig_lines = p.split("\n")
+            for line in sig_lines:
+                body_html += f'<p>{line.strip()}</p>\n'
+            body_html += '</div>\n'
+        elif ", the " in p and len(p) < 200 and not in_signature:
+            # Character entry
+            name, title = p.split(", the ", 1)
+            body_html += f'<div class="lore-inhabitant"><span class="inhabitant-name">{name}</span>, the {title}</div>\n'
+        elif in_signature:
+            body_html += f'<p class="lore-sign-line">{p}</p>\n'
+        else:
+            body_html += f'<p class="lore-paragraph">{p}</p>\n'
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Decree of Carcosa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The founding lore of the Township of Carcosa - a Minecraft server history">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>{generate_minecraft_css()}
+
+    .lore-scroll {{
+        background: linear-gradient(to bottom, #d4a574, #c4956a, #d4a574);
+        border: 4px solid var(--mc-dirt);
+        padding: 40px 30px;
+        margin: 20px 0;
+        color: #2a1a0a;
+        box-shadow: inset 0 0 30px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.4);
+        position: relative;
+    }}
+
+    .lore-scroll::before,
+    .lore-scroll::after {{
+        content: '';
+        display: block;
+        height: 12px;
+        background: linear-gradient(to bottom, #8B4513, #a0522d, #8B4513);
+        border-radius: 6px;
+        margin: -40px -30px 30px -30px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }}
+
+    .lore-scroll::after {{
+        margin: 30px -30px -40px -30px;
+    }}
+
+    .lore-title {{
+        text-align: center;
+        color: #2a1a0a;
+        font-size: clamp(10px, 3vw, 18px);
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+        line-height: 1.6;
+    }}
+
+    .lore-paragraph {{
+        font-family: 'Press Start 2P', monospace;
+        font-size: clamp(7px, 1.5vw, 9px);
+        line-height: 2.2;
+        margin-bottom: 20px;
+        text-align: justify;
+        text-indent: 2em;
+    }}
+
+    .lore-heading {{
+        font-family: 'Press Start 2P', monospace;
+        font-size: clamp(9px, 2vw, 12px);
+        color: #2a1a0a;
+        text-align: center;
+        margin: 30px 0 20px 0;
+        text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+    }}
+
+    .lore-inhabitant {{
+        font-family: 'Press Start 2P', monospace;
+        font-size: clamp(7px, 1.5vw, 9px);
+        line-height: 2;
+        padding: 8px 0;
+        border-bottom: 1px dashed rgba(42, 26, 10, 0.3);
+        text-align: center;
+    }}
+
+    .inhabitant-name {{
+        color: #5c1a00;
+        font-weight: bold;
+    }}
+
+    .lore-signature {{
+        text-align: center;
+        margin-top: 30px;
+        font-family: 'Press Start 2P', monospace;
+        font-size: clamp(7px, 1.5vw, 8px);
+        line-height: 2.2;
+    }}
+
+    .lore-sign-line {{
+        text-align: center;
+        font-family: 'Press Start 2P', monospace;
+        font-size: clamp(7px, 1.5vw, 8px);
+        line-height: 2.2;
+        margin: 4px 0;
+    }}
+
+    .lore-nav {{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Decree of Carcosa</h1>
+        <div class="lore-scroll">
+            <h2 class="lore-title">Township of Carcosa<br>Founding Decree</h2>
+            {body_html}
+        </div>
+        <div class="lore-nav">
+            <a href="index.html" class="mc-button">Back to Gallery</a>
+        </div>
+    </div>
+</body>
+</html>"""
+
+    lore_path = os.path.join(OUTPUT_FOLDER, "carcosa.html")
+    with open(lore_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"📜 Generated lore page: {lore_path}")
+
+
 def generate_enhanced_html(images, page_num, total_pages, metadata):
     """Generate enhanced HTML with Minecraft theme and performance optimizations"""
     
@@ -549,6 +704,7 @@ def generate_enhanced_html(images, page_num, total_pages, metadata):
         <div class="controls">
             {filter_buttons}
             <button class="mc-button" onclick="gallery.startSlideshow()">🎬 Slideshow</button>
+            <a href="carcosa.html" class="mc-button">📜 Lore</a>
         </div>
         
         <div class="gallery">
@@ -625,6 +781,7 @@ def main():
         sys.exit(1)
     
     write_enhanced_pages(metadata)
+    generate_lore_page()
     print("🎉 Enhanced Minecraft gallery generation completed!")
     print(f"🚀 Performance improvements:")
     print(f"   • WebP thumbnails for faster loading")

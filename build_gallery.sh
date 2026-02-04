@@ -24,6 +24,13 @@ if [ "$IMAGE_COUNT" -eq 0 ]; then
     exit 1
 fi
 
+# Normalize image filenames to minecraft_ prefix convention
+echo "📝 Normalizing image filenames..."
+python3 convert_images.py
+
+# Recount after renaming (in case any were affected)
+IMAGE_COUNT=$(find "$IMAGES_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" \) | wc -l)
+
 # Create output directory
 mkdir -p "$OUTPUT_DIR"
 mkdir -p "$THUMBNAILS_DIR"
