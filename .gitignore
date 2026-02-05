@@ -1,3 +1,6 @@
+# Images served from Cloudflare R2
+images/
+
 # Generated artifacts
 thumbnails/
 gallery-output/

@@ -10,6 +10,7 @@ IMAGE_FOLDER = "images"
 THUMBNAIL_FOLDER = "thumbnails"
 OUTPUT_FOLDER = os.getenv("GALLERY_OUTPUT_FOLDER", ".")
 OUTPUT_PREFIX = "index"
+R2_BASE_URL = os.getenv("R2_BASE_URL", "").rstrip("/")
 VALID_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
 IMAGES_PER_PAGE = 20  # Reduced for better performance
 THUMBNAIL_WIDTH = 400  # Increased for better quality
@@ -100,9 +101,12 @@ def generate_image_metadata():
             except:
                 aspect_ratio = 1.0
             
+            # Use R2 URL for full-size images if configured, otherwise local path
+            image_src = f"{R2_BASE_URL}/{fname}" if R2_BASE_URL else f"{IMAGE_FOLDER}/{fname}"
+
             image_data = {
                 "filename": fname,
-                "src": f"{IMAGE_FOLDER}/{fname}",
+                "src": image_src,
                 "thumbnail": f"{THUMBNAIL_FOLDER}/{thumb_name}",
                 "alt": fname,
                 "tag": tag,

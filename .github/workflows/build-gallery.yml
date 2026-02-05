@@ -3,19 +3,18 @@ name: Build Minecraft Gallery
 
 on:
   push:
-    branches: [ main, master ]  # Added master as backup
-    paths: 
-      - 'images/**'
+    branches: [ main, master ]
+    paths:
       - '*.py'
       - 'build_gallery.sh'
-      - '.github/workflows/**'  # Trigger on workflow changes
+      - '.github/workflows/**'
+      - 'carcosa.md'
   pull_request:
     branches: [ main, master ]
-    paths: 
-      - 'images/**'
+    paths:
       - '*.py'
       - 'build_gallery.sh'
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch: # Manual trigger - use this after uploading new images to R2
 
 jobs:
   build-gallery:
@@ -24,7 +23,9 @@ jobs:
       contents: read
       pages: write
       id-token: write
-    
+    env:
+      R2_BASE_URL: https://images.minecraft.digimente.xyz
+
     steps:
     - name: Debug info
       run: |

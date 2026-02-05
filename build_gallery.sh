@@ -5,11 +5,23 @@ set -e  # Exit on any error
 OUTPUT_DIR=${GALLERY_OUTPUT_FOLDER:-"gallery-output"}
 IMAGES_DIR="images"
 THUMBNAILS_DIR="thumbnails"
+R2_REMOTE=${R2_REMOTE:-"r2:minecraft-gallery"}
+export R2_BASE_URL=${R2_BASE_URL:-"https://images.minecraft.digimente.xyz"}
 
 echo "🎮 Building Enhanced Minecraft Gallery..."
 echo "📂 Output directory: $OUTPUT_DIR"
+echo "☁️  R2 base URL: $R2_BASE_URL"
 
-# Check if images directory exists
+# Sync images from R2 to local directory for thumbnail generation
+mkdir -p "$IMAGES_DIR"
+if command -v rclone &> /dev/null; then
+    echo "☁️  Syncing images from R2..."
+    rclone sync "$R2_REMOTE" "$IMAGES_DIR" --progress
+else
+    echo "⚠️  rclone not found, using local images directory"
+fi
+
+# Check if images directory exists and has files
 if [ ! -d "$IMAGES_DIR" ]; then
     echo "❌ Images directory '$IMAGES_DIR' not found!"
     exit 1
@@ -41,9 +53,7 @@ export GALLERY_OUTPUT_FOLDER="$OUTPUT_DIR"
 echo "🔧 Processing images and generating optimized thumbnails..."
 python3 generate_gallery.py
 
-# Copy images to output directory (GitHub Pages needs them accessible)
-echo "📁 Copying images to output directory..."
-cp -r "$IMAGES_DIR" "$OUTPUT_DIR/"
+# Images are served from R2, no need to copy to output
 
 # Copy thumbnails to output directory
 if [ -d "$THUMBNAILS_DIR" ]; then
