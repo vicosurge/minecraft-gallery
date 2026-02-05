@@ -18,7 +18,7 @@ on:
 
 jobs:
   build-gallery:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       pages: write
@@ -32,62 +32,69 @@ jobs:
         echo "Triggered by: ${{ github.event_name }}"
         echo "Branch: ${{ github.ref }}"
         echo "Repository: ${{ github.repository }}"
-        
+
     - name: Checkout repository
       uses: actions/checkout@v4
-      
-    - name: List repository contents
+
+    - name: Install dependencies
       run: |
-        echo "Repository structure:"
-        ls -la
-        echo "Checking for images folder:"
-        ls -la images/ 2>/dev/null || echo "No images folder found"
-        
-    - name: Check Python version
+        pip install Pillow
+        sudo apt-get update && sudo apt-get install -y rclone
+
+    - name: Configure rclone for R2
       run: |
-        python3 --version
-        which python3
-        
+        mkdir -p ~/.config/rclone
+        cat > ~/.config/rclone/rclone.conf << EOF
+        [r2]
+        type = s3
+        provider = Cloudflare
+        access_key_id = ${{ secrets.R2_ACCESS_KEY_ID }}
+        secret_access_key = ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        endpoint = ${{ secrets.R2_ENDPOINT }}
+        acl = private
+        no_check_bucket = true
+        EOF
+
     - name: Create output directory
       run: mkdir -p gallery-output
-      
+
     - name: Make build script executable
       run: chmod +x build_gallery.sh
-      
+
     - name: Run gallery generation
       run: |
         echo "Starting gallery generation..."
         ./build_gallery.sh
         echo "Gallery generation completed"
-        
+
     - name: List generated files
       run: |
         echo "Generated files in gallery-output:"
         ls -la gallery-output/ 2>/dev/null || echo "No gallery-output folder found"
-        
+
     - name: Upload gallery artifact
       uses: actions/upload-artifact@v4
       with:
         name: minecraft-gallery
         path: gallery-output/
         retention-days: 30
-        
-    # Deploy to GitHub Pages (using newer action)
+
+    # Deploy to GitHub Pages
     - name: Setup Pages
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       uses: actions/configure-pages@v4
-      
+
     - name: Upload to GitHub Pages
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       uses: actions/upload-pages-artifact@v3
       with:
         path: ./gallery-output
-        
+
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       id: deployment
       uses: actions/deploy-pages@v4
-      
+
     # Slack notifications
     - name: Slack Notification - Success
       if: success()
@@ -125,7 +132,7 @@ jobs:
           }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        
+
     - name: Slack Notification - Failure
       if: failure()
       uses: 8398a7/action-slack@v3
