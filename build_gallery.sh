@@ -5,7 +5,7 @@ set -e  # Exit on any error
 OUTPUT_DIR=${GALLERY_OUTPUT_FOLDER:-"gallery-output"}
 IMAGES_DIR="images"
 THUMBNAILS_DIR="thumbnails"
-R2_REMOTE=${R2_REMOTE:-"r2:minecraft-gallery"}
+R2_REMOTE=${R2_REMOTE:-"r2:minecraft-gallery-digimente"}
 export R2_BASE_URL=${R2_BASE_URL:-"https://images.minecraft.digimente.xyz"}
 
 echo "🎮 Building Enhanced Minecraft Gallery..."
